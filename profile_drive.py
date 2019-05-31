@@ -49,6 +49,8 @@ def main(path,savepath=None,filename='folder_profile'):
     if savepath is not None:
         savepath_full = os.path.join(savepath,'profile_results_{}.csv'.format(timestamp))
         print('Done. Saving results to {}'.format(savepath_full))
+        total_size_mb = profile.summary['size_bytes'].sum()/(2.**20)
+        print('The total size of all folders in this drive is {} MB'.format(total_size_mb))
         profile.summary.sort_values(by=['size_bytes'],ascending=False).to_csv(savepath_full,index=False)
 
 if __name__ == '__main__':
