@@ -15,8 +15,11 @@ class DriveProfiler(object):
         size_dict_list = []
         for dirpath, dirnames, filenames in os.walk(start_path):
             dirsize = 0
-            for f in filenames:
-                dirsize += os.path.getsize(os.path.join(dirpath, f))
+            for f in [f for f in filenames if not f.startswith('~')]:
+                try:
+                    dirsize += os.path.getsize(os.path.join(dirpath, f))
+                except OSError:
+                    pass
             size_dict_list.append({'fullpath':dirpath,
                                 'foldername':os.path.split(dirpath)[-1],
                                 'size_bytes':dirsize,
