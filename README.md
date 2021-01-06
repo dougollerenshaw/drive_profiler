@@ -8,9 +8,9 @@ gets the size of all files (files only, not subfolders) in each folder starting 
 $ python profile_drive.py --path <path_to_profile>
 ```
 
-### output
+### output:
 A CSV file with a filename "profile_results_YYYY-MM-DD_HH.mm.SSAM/PM.csv" will be saved to the top level of the directory that was profiled  
-The rows will be ordered by the folder size, with the largest folder at the top
+The rows will be ordered by the folder size, with the largest folder at the top  
 Columns in the output folder are:  
 * fullpath: the full path to the folder
 * foldername: the name of the folder
